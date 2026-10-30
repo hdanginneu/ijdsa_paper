@@ -1,0 +1,14 @@
+pandas==3.0.5
+numpy==2.5.3
+scipy==1.18.1
+scikit-learn==1.9.1
+xgboost==3.4.1
+statsmodels==0.15.0
+optuna==5.0.0
+arch==8.0.0
+ruptures==1.1.10
+torch==2.14.1+cpu
+chronos-forecasting==2.3.2
+transformers==5.20.0
+matplotlib==3.11.2
+tabulate==0.10.0

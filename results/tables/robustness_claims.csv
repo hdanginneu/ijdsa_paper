@@ -1,0 +1,8 @@
+run,models_sig_better_than_RW (Holm<0.05),models_sig_worse_than_RW (Holm<0.05),lowest_regret_model_by_h
+arabica,0,2,"GRU,SHRINK-GRU,SHRINK-GRU,SHRINK-GRU,SHRINK-GRU,Chronos,GRU"
+arabica_noflat,0,2,"SHRINK-GRU,GRU,ARIMA,COMB,SHRINK-GRU,Chronos,Chronos"
+lag1,0,0,"SHRINK-XGB,ARIMA,XGB,SHRINK-XGB,XGB,SHRINK-XGB,SHRINK-XGB"
+main,0,1,"Chronos,RF,Chronos,Chronos,SHRINK-RF,SHRINK-RF,SHRINK-RF"
+noflat,0,0,"RF,RF,SHRINK-RF,SHRINK-RF,SHRINK-RF,SHRINK-RF,SHRINK-RF"
+roll5y,0,2,"RW,ARIMA,RW,RW,SHRINK-RF,SHRINK-XGB,RW"
+usdlag7,0,3,"RW,ARIMA,RW,RW,XGB,RW,SHRINK-XGB"

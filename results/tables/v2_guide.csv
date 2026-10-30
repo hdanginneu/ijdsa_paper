@@ -1,0 +1,211 @@
+state_var,state,h,indicator,recommend,grade,note
+all,all,1,accuracy,RW,default,"Moderate (sign-consistent, not significant): SHRINK-RF -0.06 (p_holm 1.000)"
+all,all,1,decision,RW,default,none
+all,all,2,accuracy,RW,default,"Moderate (sign-consistent, not significant): RF -0.06 (p_holm 1.000)"
+all,all,2,decision,RW,default,none
+all,all,3,accuracy,RW,default,none
+all,all,3,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -2.36 (p_holm 1.000)"
+all,all,4,accuracy,RW,default,none
+all,all,4,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -3.49 (p_holm 1.000)"
+all,all,5,accuracy,RW,default,none
+all,all,5,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -2.73 (p_holm 1.000); XGB-price -1.62 (p_holm 1.000)"
+all,all,6,accuracy,RW,default,none
+all,all,6,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -1.91 (p_holm 1.000)"
+all,all,7,accuracy,RW,default,none
+all,all,7,decision,RW,default,"Moderate (sign-consistent, not significant): XGB-price -2.80 (p_holm 1.000)"
+trend,high,1,accuracy,RW,default,"Moderate (sign-consistent, not significant): RF -0.30 (p_holm 1.000); SHRINK-RF -0.29 (p_holm 1.000); DNN -0.06 (p_holm 1.000); XGB -0.06 (p_holm 1.000); SHRINK-COMB -0.03 (p_holm 1.000); COMB -0.02 (p_holm 1.000); SHRINK-XGB -0.01 (p_holm 1.000)"
+trend,high,1,decision,RW,default,"Moderate (sign-consistent, not significant): RF -4.07 (p_holm 0.363); COMB -2.56 (p_holm 1.000); GRU -0.82 (p_holm 1.000)"
+trend,high,2,accuracy,RW,default,"Moderate (sign-consistent, not significant): RF -0.65 (p_holm 1.000); SHRINK-RF -0.61 (p_holm 1.000); XGB -0.18 (p_holm 1.000); SHRINK-XGB -0.16 (p_holm 1.000); COMB -0.13 (p_holm 1.000); SHRINK-COMB -0.04 (p_holm 1.000); SHRINK-GRU -0.02 (p_holm 1.000)"
+trend,high,2,decision,RW,default,"Moderate (sign-consistent, not significant): RF -6.96 (p_holm 0.109); COMB -5.11 (p_holm 1.000); XGB-price -2.54 (p_holm 1.000); Chronos -1.22 (p_holm 1.000)"
+trend,high,3,accuracy,RW,default,"Moderate (sign-consistent, not significant): COMB -0.63 (p_holm 1.000); SHRINK-GRU -0.46 (p_holm 1.000); SHRINK-COMB -0.44 (p_holm 1.000); SHRINK-RF -0.41 (p_holm 1.000); SHRINK-XGB -0.32 (p_holm 1.000)"
+trend,high,3,decision,RW,default,"Moderate (sign-consistent, not significant): COMB -7.93 (p_holm 0.828); RF -6.79 (p_holm 0.845); Chronos -2.55 (p_holm 1.000)"
+trend,high,4,accuracy,RW,default,"Moderate (sign-consistent, not significant): COMB -0.74 (p_holm 1.000); SHRINK-XGB -0.52 (p_holm 1.000); SHRINK-COMB -0.51 (p_holm 1.000); SHRINK-RF -0.49 (p_holm 1.000)"
+trend,high,4,decision,RW,default,"Moderate (sign-consistent, not significant): COMB -7.82 (p_holm 1.000); Chronos -4.09 (p_holm 1.000)"
+trend,high,5,accuracy,RW,default,"Moderate (sign-consistent, not significant): XGB-price -1.67 (p_holm 1.000); SHRINK-XGB -1.12 (p_holm 0.818); XGB -1.09 (p_holm 0.964); COMB -1.00 (p_holm 1.000); SHRINK-RF -0.80 (p_holm 1.000); SHRINK-COMB -0.56 (p_holm 1.000)"
+trend,high,5,decision,RW,default,"Moderate (sign-consistent, not significant): COMB -8.01 (p_holm 1.000); Chronos -2.95 (p_holm 1.000)"
+trend,high,6,accuracy,RW,default,"Moderate (sign-consistent, not significant): XGB-price -2.45 (p_holm 0.966); XGB -1.57 (p_holm 0.857); SHRINK-XGB -1.55 (p_holm 0.790); SHRINK-RF -1.18 (p_holm 1.000); COMB -1.09 (p_holm 1.000); SHRINK-COMB -0.61 (p_holm 1.000)"
+trend,high,6,decision,RW,default,"Moderate (sign-consistent, not significant): COMB -7.92 (p_holm 1.000); Chronos -2.55 (p_holm 1.000)"
+trend,high,7,accuracy,RW,default,"Moderate (sign-consistent, not significant): XGB-price -2.09 (p_holm 1.000); SHRINK-XGB -1.64 (p_holm 1.000); SHRINK-RF -0.81 (p_holm 1.000); SHRINK-GRU -0.52 (p_holm 1.000); SHRINK-COMB -0.32 (p_holm 1.000)"
+trend,high,7,decision,RW,default,"Moderate (sign-consistent, not significant): XGB-price -11.72 (p_holm 0.829); COMB -8.20 (p_holm 1.000); Chronos -3.06 (p_holm 1.000)"
+trend,low,1,accuracy,RW,default,none
+trend,low,1,decision,RW,default,none
+trend,low,2,accuracy,RW,default,none
+trend,low,2,decision,RW,default,none
+trend,low,3,accuracy,RW,default,none
+trend,low,3,decision,RW,default,none
+trend,low,4,accuracy,RW,default,none
+trend,low,4,decision,RW,default,none
+trend,low,5,accuracy,RW,default,none
+trend,low,5,decision,RW,default,none
+trend,low,6,accuracy,RW,default,none
+trend,low,6,decision,RW,default,none
+trend,low,7,accuracy,RW,default,none
+trend,low,7,decision,RW,default,none
+trend,mid,1,accuracy,RW,default,"Moderate (sign-consistent, not significant): ARIMA -0.30 (p_holm 0.377); SHRINK-Chronos -0.13 (p_holm 1.000)"
+trend,mid,1,decision,RW,default,"Moderate (sign-consistent, not significant): XGB -1.61 (p_holm 1.000)"
+trend,mid,2,accuracy,RW,default,"Moderate (sign-consistent, not significant): ARIMA -0.29 (p_holm 0.183)"
+trend,mid,2,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -6.63 (p_holm 1.000); DNN -5.78 (p_holm 1.000)"
+trend,mid,3,accuracy,RW,default,"Moderate (sign-consistent, not significant): ARIMA -0.10 (p_holm 1.000)"
+trend,mid,3,decision,RW,default,"Moderate (sign-consistent, not significant): DNN -3.68 (p_holm 1.000)"
+trend,mid,4,accuracy,RW,default,"Moderate (sign-consistent, not significant): ARIMA -0.15 (p_holm 1.000)"
+trend,mid,4,decision,RW,default,none
+trend,mid,5,accuracy,RW,default,none
+trend,mid,5,decision,RW,default,none
+trend,mid,6,accuracy,RW,default,none
+trend,mid,6,decision,RW,default,none
+trend,mid,7,accuracy,RW,default,none
+trend,mid,7,decision,RW,default,none
+vol,high,1,accuracy,RW,default,none
+vol,high,1,decision,RW,default,none
+vol,high,2,accuracy,RW,default,"Moderate (sign-consistent, not significant): RF -0.15 (p_holm 1.000); SHRINK-RF -0.12 (p_holm 1.000)"
+vol,high,2,decision,RW,default,none
+vol,high,3,accuracy,RW,default,none
+vol,high,3,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -1.47 (p_holm 1.000)"
+vol,high,4,accuracy,RW,default,none
+vol,high,4,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -3.14 (p_holm 1.000)"
+vol,high,5,accuracy,RW,default,none
+vol,high,5,decision,RW,default,none
+vol,high,6,accuracy,RW,default,none
+vol,high,6,decision,RW,default,none
+vol,high,7,accuracy,RW,default,none
+vol,high,7,decision,RW,default,"Moderate (sign-consistent, not significant): XGB-price -3.20 (p_holm 1.000)"
+vol,low,1,accuracy,RW,default,none
+vol,low,1,decision,RW,default,none
+vol,low,2,accuracy,RW,default,none
+vol,low,2,decision,RW,default,none
+vol,low,3,accuracy,RW,default,none
+vol,low,3,decision,RW,default,none
+vol,low,4,accuracy,RW,default,none
+vol,low,4,decision,RW,default,none
+vol,low,5,accuracy,RW,default,none
+vol,low,5,decision,RW,default,none
+vol,low,6,accuracy,RW,default,none
+vol,low,6,decision,RW,default,none
+vol,low,7,accuracy,RW,default,none
+vol,low,7,decision,RW,default,none
+vol,mid,1,accuracy,RW,default,none
+vol,mid,1,decision,RW,default,none
+vol,mid,2,accuracy,RW,default,none
+vol,mid,2,decision,RW,default,none
+vol,mid,3,accuracy,RW,default,none
+vol,mid,3,decision,RW,default,none
+vol,mid,4,accuracy,RW,default,none
+vol,mid,4,decision,RW,default,none
+vol,mid,5,accuracy,RW,default,none
+vol,mid,5,decision,RW,default,none
+vol,mid,6,accuracy,RW,default,none
+vol,mid,6,decision,RW,default,none
+vol,mid,7,accuracy,RW,default,none
+vol,mid,7,decision,RW,default,none
+volratio,high,1,accuracy,RW,default,"Moderate (sign-consistent, not significant): RF -0.20 (p_holm 1.000); COMB -0.18 (p_holm 1.000); SHRINK-RF -0.18 (p_holm 1.000); SHRINK-COMB -0.15 (p_holm 1.000); XGB -0.12 (p_holm 1.000); SHRINK-XGB -0.06 (p_holm 1.000)"
+volratio,high,1,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -3.92 (p_holm 1.000); COMB -3.82 (p_holm 1.000); RF -3.60 (p_holm 0.996)"
+volratio,high,2,accuracy,RW,default,"Moderate (sign-consistent, not significant): COMB -0.18 (p_holm 1.000); RF -0.10 (p_holm 1.000); SHRINK-COMB -0.09 (p_holm 1.000); SHRINK-XGB -0.06 (p_holm 1.000); SHRINK-RF -0.03 (p_holm 1.000)"
+volratio,high,2,decision,RW,default,"Moderate (sign-consistent, not significant): COMB -7.62 (p_holm 0.443); XGB-price -3.86 (p_holm 1.000); Chronos -3.60 (p_holm 1.000)"
+volratio,high,3,accuracy,RW,default,"Moderate (sign-consistent, not significant): COMB -0.46 (p_holm 1.000); SHRINK-RF -0.38 (p_holm 1.000); SHRINK-XGB -0.32 (p_holm 1.000); SHRINK-COMB -0.31 (p_holm 1.000)"
+volratio,high,3,decision,RW,default,"Moderate (sign-consistent, not significant): COMB -8.46 (p_holm 1.000); XGB -2.57 (p_holm 1.000)"
+volratio,high,4,accuracy,RW,default,"Moderate (sign-consistent, not significant): SHRINK-XGB -0.33 (p_holm 1.000); COMB -0.31 (p_holm 1.000); XGB -0.29 (p_holm 1.000); SHRINK-RF -0.21 (p_holm 1.000); SHRINK-COMB -0.02 (p_holm 1.000)"
+volratio,high,4,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -11.71 (p_holm 1.000); COMB -10.14 (p_holm 1.000)"
+volratio,high,5,accuracy,RW,default,"Moderate (sign-consistent, not significant): XGB-price -1.15 (p_holm 1.000); SHRINK-XGB -0.78 (p_holm 1.000); COMB -0.43 (p_holm 1.000); SHRINK-RF -0.23 (p_holm 1.000)"
+volratio,high,5,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -11.62 (p_holm 1.000); COMB -11.26 (p_holm 1.000); XGB-price -7.53 (p_holm 1.000)"
+volratio,high,6,accuracy,RW,default,"Moderate (sign-consistent, not significant): XGB-price -1.68 (p_holm 1.000); SHRINK-XGB -1.15 (p_holm 1.000); SHRINK-RF -0.72 (p_holm 1.000); COMB -0.28 (p_holm 1.000); RF -0.28 (p_holm 1.000)"
+volratio,high,6,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -12.01 (p_holm 1.000); XGB-price -10.49 (p_holm 1.000)"
+volratio,high,7,accuracy,RW,default,"Moderate (sign-consistent, not significant): XGB-price -1.61 (p_holm 1.000); SHRINK-XGB -1.27 (p_holm 1.000); SHRINK-RF -0.89 (p_holm 1.000)"
+volratio,high,7,decision,RW,default,"Moderate (sign-consistent, not significant): XGB-price -12.47 (p_holm 1.000); Chronos -11.93 (p_holm 1.000)"
+volratio,low,1,accuracy,RW,default,"Moderate (sign-consistent, not significant): ARIMA -0.09 (p_holm 1.000)"
+volratio,low,1,decision,RW,default,none
+volratio,low,2,accuracy,RW,default,none
+volratio,low,2,decision,RW,default,none
+volratio,low,3,accuracy,RW,default,none
+volratio,low,3,decision,RW,default,none
+volratio,low,4,accuracy,RW,default,"Moderate (sign-consistent, not significant): ARIMA -0.02 (p_holm 1.000)"
+volratio,low,4,decision,RW,default,none
+volratio,low,5,accuracy,RW,default,none
+volratio,low,5,decision,RW,default,none
+volratio,low,6,accuracy,RW,default,none
+volratio,low,6,decision,RW,default,none
+volratio,low,7,accuracy,RW,default,"Moderate (sign-consistent, not significant): ARIMA -0.00 (p_holm 1.000)"
+volratio,low,7,decision,RW,default,none
+volratio,mid,1,accuracy,RW,default,"Moderate (sign-consistent, not significant): COMB -0.13 (p_holm 1.000); SHRINK-Chronos -0.08 (p_holm 1.000); SHRINK-COMB -0.04 (p_holm 1.000)"
+volratio,mid,1,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -4.39 (p_holm 1.000); COMB -4.04 (p_holm 1.000); DNN -2.59 (p_holm 1.000); XGB -1.84 (p_holm 1.000); SHRINK-XGB -1.23 (p_holm 1.000)"
+volratio,mid,2,accuracy,RW,default,"Moderate (sign-consistent, not significant): SHRINK-RF -0.01 (p_holm 1.000)"
+volratio,mid,2,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -7.53 (p_holm 1.000); COMB -2.28 (p_holm 1.000); ARIMA -2.09 (p_holm 1.000)"
+volratio,mid,3,accuracy,RW,default,none
+volratio,mid,3,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -10.02 (p_holm 1.000); COMB -1.80 (p_holm 1.000)"
+volratio,mid,4,accuracy,RW,default,"Moderate (sign-consistent, not significant): ARIMA -0.15 (p_holm 1.000)"
+volratio,mid,4,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -6.59 (p_holm 1.000)"
+volratio,mid,5,accuracy,RW,default,"Moderate (sign-consistent, not significant): Chronos -1.93 (p_holm 1.000); SHRINK-Chronos -1.75 (p_holm 1.000); COMB -0.70 (p_holm 1.000); SHRINK-COMB -0.35 (p_holm 1.000); ARIMA -0.06 (p_holm 1.000)"
+volratio,mid,5,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -8.76 (p_holm 1.000)"
+volratio,mid,6,accuracy,RW,default,"Moderate (sign-consistent, not significant): Chronos -3.11 (p_holm 1.000); SHRINK-Chronos -2.66 (p_holm 1.000)"
+volratio,mid,6,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -10.99 (p_holm 1.000)"
+volratio,mid,7,accuracy,RW,default,"Moderate (sign-consistent, not significant): Chronos -4.20 (p_holm 1.000); SHRINK-Chronos -3.80 (p_holm 1.000)"
+volratio,mid,7,decision,RW,default,"Moderate (sign-consistent, not significant): Chronos -6.15 (p_holm 1.000)"
+trend,high,1,uncertainty,vol-scaled conformal,Strong,coverage 0.914; Kupiec p>0.05 in 6 blocks; B6 ok: True
+trend,high,2,uncertainty,vol-scaled conformal,Strong,coverage 0.881; Kupiec p>0.05 in 4 blocks; B6 ok: True
+trend,high,3,uncertainty,vol-scaled conformal,Strong,coverage 0.890; Kupiec p>0.05 in 5 blocks; B6 ok: True
+trend,high,4,uncertainty,vol-scaled conformal,Strong,coverage 0.892; Kupiec p>0.05 in 6 blocks; B6 ok: True
+trend,high,5,uncertainty,vol-scaled conformal,Moderate,coverage 0.874; Kupiec p>0.05 in 4 blocks; B6 ok: False
+trend,high,6,uncertainty,vol-scaled conformal,Strong,coverage 0.873; Kupiec p>0.05 in 4 blocks; B6 ok: True
+trend,high,7,uncertainty,vol-scaled conformal,Weak,coverage 0.867; Kupiec p>0.05 in 2 blocks; B6 ok: False
+trend,low,1,uncertainty,vol-scaled conformal,Strong,coverage 0.900; Kupiec p>0.05 in 4 blocks; B6 ok: True
+trend,low,2,uncertainty,vol-scaled conformal,Strong,coverage 0.897; Kupiec p>0.05 in 4 blocks; B6 ok: True
+trend,low,3,uncertainty,vol-scaled conformal,Weak,coverage 0.914; Kupiec p>0.05 in 3 blocks; B6 ok: True
+trend,low,4,uncertainty,vol-scaled conformal,Weak,coverage 0.902; Kupiec p>0.05 in 3 blocks; B6 ok: True
+trend,low,5,uncertainty,sqrt(h) rule,Weak,coverage 0.887; Kupiec p>0.05 in 0 blocks; B6 ok: False
+trend,low,6,uncertainty,static conformal,Weak,coverage 0.875; Kupiec p>0.05 in 0 blocks; B6 ok: False
+trend,low,7,uncertainty,static conformal,Weak,coverage 0.892; Kupiec p>0.05 in 1 blocks; B6 ok: False
+trend,mid,1,uncertainty,static conformal,Moderate,coverage 0.902; Kupiec p>0.05 in 4 blocks; B6 ok: False
+trend,mid,2,uncertainty,vol-scaled conformal,Strong,coverage 0.896; Kupiec p>0.05 in 5 blocks; B6 ok: True
+trend,mid,3,uncertainty,vol-scaled conformal,Strong,coverage 0.872; Kupiec p>0.05 in 4 blocks; B6 ok: True
+trend,mid,4,uncertainty,vol-scaled conformal,Strong,coverage 0.872; Kupiec p>0.05 in 4 blocks; B6 ok: True
+trend,mid,5,uncertainty,static conformal,Weak,coverage 0.865; Kupiec p>0.05 in 3 blocks; B6 ok: False
+trend,mid,6,uncertainty,vol-scaled conformal,Weak,coverage 0.865; Kupiec p>0.05 in 3 blocks; B6 ok: False
+trend,mid,7,uncertainty,vol-scaled conformal,Weak,coverage 0.869; Kupiec p>0.05 in 3 blocks; B6 ok: True
+vol,high,1,uncertainty,vol-scaled conformal,Strong,coverage 0.927; Kupiec p>0.05 in 4 blocks; B6 ok: True
+vol,high,2,uncertainty,vol-scaled conformal,Strong,coverage 0.901; Kupiec p>0.05 in 5 blocks; B6 ok: True
+vol,high,3,uncertainty,vol-scaled conformal,Strong,coverage 0.909; Kupiec p>0.05 in 4 blocks; B6 ok: True
+vol,high,4,uncertainty,vol-scaled conformal,Strong,coverage 0.906; Kupiec p>0.05 in 4 blocks; B6 ok: True
+vol,high,5,uncertainty,vol-scaled conformal,Weak,coverage 0.897; Kupiec p>0.05 in 2 blocks; B6 ok: False
+vol,high,6,uncertainty,vol-scaled conformal,Weak,coverage 0.896; Kupiec p>0.05 in 3 blocks; B6 ok: False
+vol,high,7,uncertainty,vol-scaled conformal,Weak,coverage 0.895; Kupiec p>0.05 in 3 blocks; B6 ok: False
+vol,low,1,uncertainty,static conformal,Weak,coverage 0.900; Kupiec p>0.05 in 3 blocks; B6 ok: False
+vol,low,2,uncertainty,sqrt(h) rule,Weak,coverage 0.892; Kupiec p>0.05 in 3 blocks; B6 ok: False
+vol,low,3,uncertainty,static conformal,Weak,coverage 0.880; Kupiec p>0.05 in 3 blocks; B6 ok: False
+vol,low,4,uncertainty,static conformal,Weak,coverage 0.884; Kupiec p>0.05 in 3 blocks; B6 ok: False
+vol,low,5,uncertainty,static conformal,Weak,coverage 0.880; Kupiec p>0.05 in 3 blocks; B6 ok: False
+vol,low,6,uncertainty,static conformal,Weak,coverage 0.861; Kupiec p>0.05 in 3 blocks; B6 ok: False
+vol,low,7,uncertainty,static conformal,Weak,coverage 0.869; Kupiec p>0.05 in 2 blocks; B6 ok: False
+vol,mid,1,uncertainty,static conformal,Weak,coverage 0.899; Kupiec p>0.05 in 3 blocks; B6 ok: False
+vol,mid,2,uncertainty,vol-scaled conformal,Weak,coverage 0.886; Kupiec p>0.05 in 2 blocks; B6 ok: False
+vol,mid,3,uncertainty,vol-scaled conformal,Weak,coverage 0.902; Kupiec p>0.05 in 2 blocks; B6 ok: False
+vol,mid,4,uncertainty,vol-scaled conformal,Weak,coverage 0.894; Kupiec p>0.05 in 1 blocks; B6 ok: False
+vol,mid,5,uncertainty,vol-scaled conformal,Weak,coverage 0.873; Kupiec p>0.05 in 1 blocks; B6 ok: False
+vol,mid,6,uncertainty,vol-scaled conformal,Weak,coverage 0.863; Kupiec p>0.05 in 1 blocks; B6 ok: False
+vol,mid,7,uncertainty,vol-scaled conformal,Weak,coverage 0.873; Kupiec p>0.05 in 1 blocks; B6 ok: False
+volratio,high,1,uncertainty,vol-scaled conformal,Strong,coverage 0.931; Kupiec p>0.05 in 4 blocks; B6 ok: True
+volratio,high,2,uncertainty,vol-scaled conformal,Strong,coverage 0.913; Kupiec p>0.05 in 5 blocks; B6 ok: True
+volratio,high,3,uncertainty,vol-scaled conformal,Moderate,coverage 0.910; Kupiec p>0.05 in 5 blocks; B6 ok: False
+volratio,high,4,uncertainty,vol-scaled conformal,Moderate,coverage 0.911; Kupiec p>0.05 in 4 blocks; B6 ok: False
+volratio,high,5,uncertainty,vol-scaled conformal,Moderate,coverage 0.896; Kupiec p>0.05 in 5 blocks; B6 ok: False
+volratio,high,6,uncertainty,vol-scaled conformal,Weak,coverage 0.886; Kupiec p>0.05 in 2 blocks; B6 ok: False
+volratio,high,7,uncertainty,vol-scaled conformal,Weak,coverage 0.882; Kupiec p>0.05 in 3 blocks; B6 ok: False
+volratio,low,1,uncertainty,sqrt(h) rule,Moderate,coverage 0.909; Kupiec p>0.05 in 4 blocks; B6 ok: False
+volratio,low,2,uncertainty,sqrt(h) rule,Moderate,coverage 0.911; Kupiec p>0.05 in 4 blocks; B6 ok: False
+volratio,low,3,uncertainty,sqrt(h) rule,Moderate,coverage 0.904; Kupiec p>0.05 in 4 blocks; B6 ok: False
+volratio,low,4,uncertainty,sqrt(h) rule,Moderate,coverage 0.891; Kupiec p>0.05 in 4 blocks; B6 ok: False
+volratio,low,5,uncertainty,static conformal,Weak,coverage 0.891; Kupiec p>0.05 in 3 blocks; B6 ok: False
+volratio,low,6,uncertainty,static conformal,Moderate,coverage 0.888; Kupiec p>0.05 in 4 blocks; B6 ok: False
+volratio,low,7,uncertainty,static conformal,Moderate,coverage 0.903; Kupiec p>0.05 in 4 blocks; B6 ok: False
+volratio,mid,1,uncertainty,static conformal,Strong,coverage 0.901; Kupiec p>0.05 in 6 blocks; B6 ok: True
+volratio,mid,2,uncertainty,static conformal,Moderate,coverage 0.898; Kupiec p>0.05 in 5 blocks; B6 ok: False
+volratio,mid,3,uncertainty,static conformal,Moderate,coverage 0.886; Kupiec p>0.05 in 4 blocks; B6 ok: False
+volratio,mid,4,uncertainty,vol-scaled conformal,Moderate,coverage 0.906; Kupiec p>0.05 in 5 blocks; B6 ok: False
+volratio,mid,5,uncertainty,static conformal,Moderate,coverage 0.881; Kupiec p>0.05 in 4 blocks; B6 ok: False
+volratio,mid,6,uncertainty,vol-scaled conformal,Moderate,coverage 0.869; Kupiec p>0.05 in 4 blocks; B6 ok: False
+volratio,mid,7,uncertainty,static conformal,Strong,coverage 0.894; Kupiec p>0.05 in 5 blocks; B6 ok: True
+all,all,1,uncertainty,vol-scaled conformal,Strong,coverage 0.912; Kupiec p>0.05 in 6 blocks; B6 ok: True
+all,all,2,uncertainty,vol-scaled conformal,Strong,coverage 0.888; Kupiec p>0.05 in 6 blocks; B6 ok: True
+all,all,3,uncertainty,vol-scaled conformal,Strong,coverage 0.892; Kupiec p>0.05 in 5 blocks; B6 ok: True
+all,all,4,uncertainty,vol-scaled conformal,Strong,coverage 0.890; Kupiec p>0.05 in 6 blocks; B6 ok: True
+all,all,5,uncertainty,vol-scaled conformal,Weak,coverage 0.871; Kupiec p>0.05 in 2 blocks; B6 ok: False
+all,all,6,uncertainty,vol-scaled conformal,Weak,coverage 0.870; Kupiec p>0.05 in 3 blocks; B6 ok: False
+all,all,7,uncertainty,vol-scaled conformal,Weak,coverage 0.870; Kupiec p>0.05 in 1 blocks; B6 ok: False

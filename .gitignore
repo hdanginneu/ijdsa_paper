@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+.claude/
+_tmp_stage/
+results_backup_*/
+results_smoke*/
+results/robust/
+results/epochs/
+*.log
+DECISIONS.md
+results/RESULTS.md
+results/ROLL_NOTES.md
+results/CHRONOS_CORPUS.md
+results/RUN_STATUS.md

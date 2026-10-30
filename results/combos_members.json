@@ -1,0 +1,16 @@
+{
+ "COMB": [
+  "ARIMA",
+  "RF",
+  "XGB",
+  "GRU",
+  "Chronos"
+ ],
+ "SHRINK": [
+  "RF",
+  "XGB",
+  "GRU",
+  "Chronos",
+  "COMB"
+ ]
+}

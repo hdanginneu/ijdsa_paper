@@ -1,0 +1,7 @@
+series,test,spec,lags,stat,p,cv5
+log price,ADF,"regression=c, autolag=AIC",1,-0.556127957048323,0.8805904103064808,-2.8622133321375327
+log price,ADF,"regression=ct, autolag=AIC",0,-0.9614294468082164,0.9490875539776747,-3.4115127022820415
+log price,KPSS,"regression=c, nlags=auto",40,1.2525831299394712,0.01,0.463
+log return,ADF,"regression=c, autolag=AIC",0,-64.0318666490245,0.0,-2.8622131753126845
+log return,ADF,"regression=ct, autolag=AIC",0,-64.06558818182208,0.0,-3.4115127022820415
+log return,KPSS,"regression=c, nlags=auto",3,0.3108870814866535,0.1,0.463

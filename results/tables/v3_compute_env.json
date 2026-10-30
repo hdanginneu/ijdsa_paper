@@ -1,0 +1,18 @@
+{
+ "cpu": "Apple M4",
+ "n_cores": "10",
+ "ram_gb": 24.0,
+ "os": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+ "python": "3.13.7",
+ "threads_per_model": 2,
+ "repeats": 3,
+ "versions": {
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "sklearn": "1.9.1",
+  "xgboost": "3.4.1",
+  "statsmodels": "0.15.0",
+  "torch": "2.14.1",
+  "chronos": "2.3.2"
+ }
+}
