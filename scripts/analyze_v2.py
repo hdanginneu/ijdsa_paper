@@ -1,4 +1,4 @@
-"""Sourced costs, risk, states, mechanisms and the firm-facing guide (DECISIONS D-29 .. D-34).
+"""Sourced costs, risk, states, mechanisms and the firm-facing guide.
 
 Uses saved forecasts only (results/forecasts). Outputs in results/tables/v2_*.csv.
 """
@@ -23,8 +23,8 @@ from analyze import ensemble, ewma_sigma, load                    # noqa: E402
 OUT = C.RESULTS / "tables"
 KEY = ["block", "origin_date", "h"]
 BLOCKS = ["B1", "B2", "B3", "B4", "B5", "B6"]
-# models with a predictive distribution (D-31). COMB added (D-42/D-46). SHRINK-* are deliberately NOT here:
-# their cal rows are in-sample for w (D-43), so they must not calibrate a distribution or an interval.
+# models with a predictive distribution. COMB added. SHRINK-* are deliberately NOT here:
+# their cal rows are in-sample for w, so they must not calibrate a distribution or an interval.
 DIST = ["RW", "ARIMA", "RF", "XGB", "GRU", "Chronos", "COMB"]
 LAMBDAS = [0.0, 0.1, 0.25, 0.5]
 STATE_VARS = ["trend", "vol", "volratio"]
@@ -59,7 +59,7 @@ def dm_vs(a, b, h):
     return dm_test(np.asarray(a), np.asarray(b), h)
 
 
-# ------------------------------------------------------------------ D-29, D-30: decisions with sourced costs
+# ------------------------------------------------------------------ decisions with sourced costs
 def decisions(test, labels):
     rows, dm_rows = [], []
     base = {}
@@ -102,7 +102,7 @@ def decisions(test, labels):
     return base
 
 
-# ------------------------------------------------------------------ D-31: predictive distribution of the waiting payoff
+# ------------------------------------------------------------------ predictive distribution of the waiting payoff
 def risk(ens, sigma, labels):
     models = present(labels, DIST)
     e2 = ens[ens["label"].isin(models)].join(sigma, on="origin_date")
@@ -166,14 +166,14 @@ def risk(ens, sigma, labels):
     return po
 
 
-# ------------------------------------------------------------------ D-32: five indicators by state
+# ------------------------------------------------------------------ five indicators by state
 def run_costs(labels):
-    """Compute cost per model. D-54: if the re-measured table exists (main run, scripts/time_models.py) it is
+    """Compute cost per model. If the re-measured table exists (main run, scripts/time_models.py) it is
     used for every run; otherwise fall back to wall seconds per 1,000 origins from the estimation logs."""
     f = C.MAIN_RESULTS / "tables" / "v3_compute_cost.csv"
     if f.exists():
         t = pd.read_csv(f)
-        t["source"] = "time_models (D-54)"
+        t["source"] = "time_models"
         return t[t["model"].isin(labels)]
     rows = []
     logs = list((C.ROOT / "logs").glob("*.log")) + list((C.RESULTS / "logs").glob("*.log"))
@@ -253,7 +253,7 @@ def indicators(fc, ens, base, st, sigma, labels):
     return d, iv
 
 
-# ------------------------------------------------------------------ D-33: guide with evidence grades
+# ------------------------------------------------------------------ guide with evidence grades
 def grade(p_holm, n_consistent, b6_same):
     if p_holm < 0.05 and n_consistent >= 4 and b6_same:
         return "Strong"
@@ -279,7 +279,7 @@ def guide(d, iv, labels):
                     part = []
                     for m in cands:
                         a = dh[dh["label"] == m].set_index(KEY)
-                        idx = a.index.intersection(rw.index).sort_values()   # D-58 addendum: time order
+                        idx = a.index.intersection(rw.index).sort_values()   # time order
                         if len(idx) < MIN_OBS:
                             continue
                         diff = a.loc[idx, loss] - rw.loc[idx, loss]
@@ -304,7 +304,7 @@ def guide(d, iv, labels):
     # one recommendation per state x h x indicator
     rec = []
     for (sv, state, h, loss), g in cells.groupby(["state_var", "state", "h", "loss"]):
-        ok = g[g["better_than_RW"] & (g["grade"] == "Strong")]          # D-40: only Strong cells recommend
+        ok = g[g["better_than_RW"] & (g["grade"] == "Strong")]          # only Strong cells recommend
         if ok.empty:
             mod = g[g["better_than_RW"] & (g["grade"] == "Moderate")].sort_values("mean_diff")
             note = "; ".join(f"{r['model']} {r['mean_diff']:+.2f} (p_holm {r['p_holm']:.3f})" for _, r in mod.iterrows())
@@ -347,7 +347,7 @@ def guide(d, iv, labels):
     write(pd.DataFrame(rec), "guide")
 
 
-# ------------------------------------------------------------------ D-34: mechanisms
+# ------------------------------------------------------------------ mechanisms
 def mechanisms(test, st, first_b1):
     t = build_table()
     ret = t["ret"]

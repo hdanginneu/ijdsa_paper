@@ -113,7 +113,7 @@ class SeqModel:
 
 
 class SeqClassifier(SeqModel):
-    """Same network as SeqModel, but trained with a cost-sensitive logistic loss (D-22).
+    """Same network as SeqModel, but trained with a cost-sensitive logistic loss.
 
     Y = 0/1 labels (wait is correct) for the 7 horizons; W = sample weights |r - threshold|.
     Weights are normalised to mean 1 on the training set.

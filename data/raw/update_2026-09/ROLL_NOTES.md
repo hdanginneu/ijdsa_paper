@@ -14,7 +14,7 @@ Checked 22/10/2026. Only what the cited pages state is reported as fact.
 - First Notice Day: "Seven business days prior to first business day of delivery month."
 - Last Trading Day: "One business day prior to last notice day".
 - Contract size: "37,500 pounds"; quotation in cents per pound. (Converted to USD/t in this project;
-  a 10-t lot for Arabica in D-51 is a comparison convention only, not the ICE contract size.)
+  a 10-t lot for Arabica in the cost analysis is a comparison convention only, not the ICE contract size.)
 
 ## Investing.com continuous series
 - How Investing.com builds its continuous "London Coffee" / "US Coffee C" history (which contract on which
@@ -25,9 +25,9 @@ Checked 22/10/2026. Only what the cited pages state is reported as fact.
 ## Anchors used by scripts/roll_calendar.py (assumptions, stated explicitly)
 - Business days are approximated by the trading days present in each file (exchange holiday calendars
   are not modelled separately).
-- **Primary anchor (D-49): First Notice Day**, computed as the 4th (Robusta) / 7th (Arabica) trading day
+- **Primary anchor: First Notice Day**, computed as the 4th (Robusta) / 7th (Arabica) trading day
   before the first trading day of the delivery month in the file.
-- **Supplementary anchor (added, not in D-49): Last Trading Day**, computed as the 4th (Robusta) trading day
+- **Supplementary anchor (added, not in the primary rule): Last Trading Day**, computed as the 4th (Robusta) trading day
   before the last trading day of the delivery month, and for Arabica one trading day before the Last
   Notice Day approximated as the 7th trading day before the last trading day of the delivery month
   ([unverified]: the Coffee "C" last-notice rule is not quoted above). Reason: Robusta LTD falls about one month after
@@ -39,4 +39,4 @@ Checked 22/10/2026. Only what the cited pages state is reported as fact.
 ## Data limitation for the gap measure
 - The Robusta file has 362 rows with open = high = low = close (mostly early years of the earlier export). On
   those days the "overnight gap" equals the whole close-to-close move, so the gap is not a clean overnight
-  measure there. The rows are kept as in the file (D-17); the full-sample median gap is computed over all rows.
+  measure there. The rows are kept as in the file; the full-sample median gap is computed over all rows.

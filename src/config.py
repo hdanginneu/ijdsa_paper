@@ -1,7 +1,7 @@
 """All experiment settings in one place.
 
 Every value here is fixed BEFORE looking at test results.
-Any change must be recorded in DECISIONS.md with the date and the reason.
+Changing a setting here changes the results and must be documented.
 """
 import os
 from pathlib import Path
@@ -29,24 +29,24 @@ ARABICA_FILE = RAW / "update_2026-09" / "us_coffee_c_daily_2008-01-14_2026-09-30
 PRICE_UNIT = os.environ.get("IJDSA_PRICE_UNIT", "usd_t")
 CENTS_LB_TO_USD_T = 22.0462262
 COFFEE_FILE_V1 = RAW / "coffee_price.csv"       # v1 export, kept for comparison only
-# 21-24/09/2026 have O=H=L=C and zero volume (possible filler rows, see DECISIONS D-17).
+# 21-24/09/2026 have O=H=L=C and zero volume (possible filler rows).
 DROP_FLAT_ROWS = os.environ.get("IJDSA_DROP_FLAT") == "1"         # primary: keep them (closes vary, volume -> missing); sensitivity: drop
-DROP_FLAT_FROM = os.environ.get("IJDSA_DROP_FLAT_FROM", "2026-01-01")   # D-17 primary; D-55 Arabica: 2008-01-01
+DROP_FLAT_FROM = os.environ.get("IJDSA_DROP_FLAT_FROM", "2026-01-01")   # primary; Arabica: 2008-01-01
 FRED_DIR = RAW / "fred_2026-10-16"
 START_DATE = "2008-01-14"
 END_DATE = None                                  # None = use all coffee dates available
 
 # Macro series are lagged so that each value is published before the
-# forecast origin (ICE London close). See DECISIONS.md, D-04.
+# forecast origin (ICE London close).
 MACRO_LAG = int(os.environ.get("IJDSA_MACRO_LAG", 6))   # trading days, primary (conservative)
 MACRO_LAG_SENS = 1       # sensitivity run
-# D-56: separate lag for DTWEXBGS only (robustness 'usdlag7'); None = same as MACRO_LAG
+# separate lag for DTWEXBGS only (robustness 'usdlag7'); None = same as MACRO_LAG
 USD_LAG = int(os.environ["IJDSA_USD_LAG"]) if os.environ.get("IJDSA_USD_LAG") else None
 
 # ---- forecasting task ---------------------------------------------------
 HORIZONS = list(range(1, 8))     # h = 1..7 trading days, direct strategy
 GAP = 7                          # trading days between last training origin and next segment
-# Training window: None = expanding (primary); an integer = rolling window of that many origins (robustness, D-31)
+# Training window: None = expanding (primary); an integer = rolling window of that many origins (robustness)
 TRAIN_WINDOW = int(os.environ["IJDSA_TRAIN_WINDOW"]) if os.environ.get("IJDSA_TRAIN_WINDOW") else None
 
 # Evaluation blocks are defined by FORECAST-ORIGIN dates.

@@ -43,7 +43,7 @@ def main():
     for b in blocks:
         assert b.val[-1] + max(C.HORIZONS) <= b.origins[0], b.name
 
-    # 5. shrinkage weight (D-43): w ~ 0 when cal r_true is unrelated to r_pred, w = 1 when r_true = r_pred
+    # 5. shrinkage weight: w ~ 0 when cal r_true is unrelated to r_pred, w = 1 when r_true = r_pred
     import pandas as pd
     sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
     from run_combos import choose_weight
@@ -60,7 +60,7 @@ def main():
         cut = cost_matrix(t.iloc[: i + max(C.HORIZONS) + 1])
         assert np.allclose(cut[i], full_cost[i]), i
 
-    # 7. D-56 usdlag7: d_usd = raw Δlog DTWEXBGS lagged exactly 7 coffee days; d_effr unchanged (lag 6)
+    # 7. usdlag7: d_usd = raw Δlog DTWEXBGS lagged exactly 7 coffee days; d_effr unchanged (lag 6)
     import os
     import subprocess
     import tempfile

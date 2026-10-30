@@ -142,7 +142,7 @@ DIAG_MODELS = ["ARIMA", "RF", "XGB", "GRU", "Chronos", "COMB", "SHRINK-COMB"]
 
 
 def loss_diff_acf(test, labels):
-    """D-45a: ACF (lags 1-10) and Ljung-Box(10) of d_t = loss_model - loss_RW, per block, sorted by origin."""
+    """ACF (lags 1-10) and Ljung-Box(10) of d_t = loss_model - loss_RW, per block, sorted by origin."""
     from statsmodels.stats.diagnostic import acorr_ljungbox
     from statsmodels.tsa.stattools import acf
     rows = []
@@ -171,7 +171,7 @@ def loss_diff_acf(test, labels):
 
 
 def dm_by_block(test, labels):
-    """D-45b: DM-HLN vs RW within each block (HAC lags h-1); Holm within block x h x loss."""
+    """DM-HLN vs RW within each block (HAC lags h-1); Holm within block x h x loss."""
     rows = []
     for (blk, h), g in test.groupby(["block", "h"]):
         piv = g.pivot_table(index="origin_date", columns="label", values="price_pred", aggfunc="first")
@@ -230,7 +230,7 @@ def main():
     # prediction intervals: RW, ARIMA and the learned model with the lowest calibration MAE
     cal = ens[(ens["split"] == "cal")].dropna(subset=["r_true"])
     cal_mae = cal.assign(ae=(cal["price_true"] - cal["price_pred"]).abs()).groupby("label")["ae"].mean()
-    # D-46: COMB and SHRINK-* are not eligible as "best learned model by validation MAE"
+    # COMB and SHRINK-* are not eligible as "best learned model by validation MAE"
     learned = [l for l in cal_mae.index if l not in ("RW", "Drift", "ARIMA", "COMB") and not l.startswith("SHRINK-")]
     chosen = cal_mae.loc[learned].idxmin() if learned else None
     iv_models = [m for m in ["RW", "ARIMA", chosen, "COMB"] if m and m in cal_mae.index]
@@ -243,10 +243,10 @@ def main():
     iv.to_csv(OUT / "intervals_rows.csv", index=False)
     IV.evaluate(iv, ["model", "level", "h"]).to_csv(OUT / "intervals_pooled.csv", index=False)
     IV.evaluate(iv, ["model", "level", "block"]).to_csv(OUT / "intervals_by_block.csv", index=False)
-    IV.evaluate(iv, ["model", "level", "block", "h"]).to_csv(OUT / "intervals_by_block_h.csv", index=False)   # D-41
+    IV.evaluate(iv, ["model", "level", "block", "h"]).to_csv(OUT / "intervals_by_block_h.csv", index=False)
     (OUT / "README_intervals.md").write_text(
         "kupiec_p in intervals_*.csv: Kupiec assumes independent hits; for h > 1 overlapping forecasts "
-        "induce dependence, so p-values are indicative only (D-41).\n")
+        "induce dependence, so p-values are indicative only.\n")
     cal_mae.rename("cal_MAE").to_csv(OUT / "calibration_mae.csv")
     print("interval models:", iv_models)
     print("done:", sorted(p.name for p in OUT.glob("*.csv")))

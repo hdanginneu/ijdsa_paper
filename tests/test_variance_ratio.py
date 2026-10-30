@@ -1,4 +1,4 @@
-"""Checks of the Lo-MacKinlay variance ratio in scripts/analyze_v4.py (D-64). Run: python3 tests/test_variance_ratio.py
+"""Checks of the Lo-MacKinlay variance ratio in scripts/analyze_v4.py. Run: python3 tests/test_variance_ratio.py
 
 1. AR(1) returns with rho = 0.3 and large n: VR(q) clearly above 1, z* large, p tiny, for q = 2, 5, 10.
 2. i.i.d. returns: the test does not reject systematically (rejection rate at 5% close to 5%).

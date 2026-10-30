@@ -76,7 +76,7 @@ def fig_regret_states():
 
 
 def fig_coverage_block_h():
-    """D-57: coverage of the 90% interval (RW) by block x horizon, one panel per method."""
+    """coverage of the 90% interval (RW) by block x horizon, one panel per method."""
     iv = pd.read_csv(T / "intervals_by_block_h.csv")
     iv = iv[(iv["model"] == "RW") & (iv["level"] == 0.9)]
     names = {"conf": "static conformal", "vol": "vol-scaled conformal", "heur": "sqrt(h) rule"}

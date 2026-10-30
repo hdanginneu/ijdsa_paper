@@ -1,4 +1,4 @@
-"""Zero-shot Chronos-Bolt (small) forecasts for every block (RQ4 expensive model, D-15b, D-24).
+"""Zero-shot Chronos-Bolt (small) forecasts for every block (RQ4 expensive model).
 
 Context = the last 512 closing prices up to and including the origin. No training, no tuning.
 Point forecast = median; the native 10% and 90% quantiles are saved as well.

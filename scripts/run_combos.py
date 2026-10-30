@@ -1,4 +1,4 @@
-"""Pre-specified forecast combination and shrinkage towards RW (DECISIONS D-42, D-43).
+"""Pre-specified forecast combination and shrinkage towards RW.
 
 COMB      : equal-weight mean of r_pred over the COMB_MEMBERS present in this run (full variant),
             on origins where every present member has a forecast; cal and test splits.

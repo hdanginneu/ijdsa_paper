@@ -1,4 +1,4 @@
-"""Compare the main run with every robustness run in results/robust/<tag>/ (D-35)."""
+"""Compare the main run with every robustness run in results/robust/<tag>/."""
 import sys
 from pathlib import Path
 
@@ -42,7 +42,7 @@ def main():
         if "mean_regret" in g else "",
     }), include_groups=False).reset_index()
     claims.to_csv(out / "robustness_claims.csv", index=False)
-    # D-61: model-selection reliability of every run (candidates = the models present in that run)
+    # model-selection reliability of every run (candidates = the models present in that run)
     sel = []
     for d, name in [(C.MAIN_RESULTS, "main")] + [(d, d.name) for d in sorted((C.MAIN_RESULTS / "robust").glob("*"))
                                                  if (C.MAIN_RESULTS / "robust").exists()]:

@@ -1,4 +1,4 @@
-"""Sourced carry cost and decision evaluation with costs in USD/t (DECISIONS D-29, D-30).
+"""Sourced carry cost and decision evaluation with costs in USD/t.
 
 Seller holding physical coffee at origin t, horizon h:
     sell now      -> 0 (reference)
@@ -17,7 +17,7 @@ from .data import load_fred
 STORAGE_USD_T_MONTH = 14.42
 STORAGE_PER_DAY = STORAGE_USD_T_MONTH * 12 / 365
 STORAGE_MULT = [0.0, 1.0, 2.0]          # sensitivity
-BASIS_SD = [0.0, 25.0, 50.0]            # USD/t, sensitivity (D-30)
+BASIS_SD = [0.0, 25.0, 50.0]            # USD/t, sensitivity
 
 
 def effr_at(dates):
@@ -57,7 +57,7 @@ def cost_matrix(table, storage_mult=1.0):
 
 
 def evaluate_rule(df, side="seller", score="r_pred", storage_mult=1.0):
-    """Evaluate any rule with the sourced cost (D-37).
+    """Evaluate any rule with the sourced cost.
 
     score = 'r_pred': point-forecast rule; score = 'p_wait': wait iff p_wait > 0.5.
     """
@@ -86,7 +86,7 @@ def evaluate(df, side="seller", wait=None, basis_sd=0.0):
 
     wait: boolean array of the rule's action; default = point rule
           (seller waits iff expected price move exceeds cost).
-    basis_sd > 0 (D-30): the realised payoff of waiting is pw + e, e ~ N(0, basis_sd^2) independent of the
+    basis_sd > 0: the realised payoff of waiting is pw + e, e ~ N(0, basis_sd^2) independent of the
     forecast. Payoff and regret are their expectation over e (closed form), so the sensitivity has no
     simulation noise: E[payoff] = wait * pw, E[regret] = E[max(pw + e, 0)] - wait * pw.
     """

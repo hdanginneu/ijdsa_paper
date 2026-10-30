@@ -1,11 +1,11 @@
-"""Round-3 additional analyses (DECISIONS D-47 .. D-53). Saved forecasts only; tables in <results>/tables/v3_*.csv.
+"""Round-3 additional analyses. Saved forecasts only; tables in <results>/tables/v3_*.csv.
 
-C1 Clark-West vs RW (D-47)            -> v3_clark_west.csv
-C2 MAE ratio CI + equivalence (D-48)  -> v3_mae_ratio_ci.csv, v3_equivalence_summary.csv
-C3 roll robustness (D-49)             -> v3_roll_robustness.csv
-C4 Chronos on B5-B6 (D-50)            -> v3_chronos_b56.csv
-C5 economic magnitude (D-51)          -> v3_economic_magnitude.csv, v3_regret_leave_one_block_out.csv
-C7 Christoffersen h = 1 (D-53)        -> v3_christoffersen_h1.csv
+C1 Clark-West vs RW            -> v3_clark_west.csv
+C2 MAE ratio CI + equivalence  -> v3_mae_ratio_ci.csv, v3_equivalence_summary.csv
+C3 roll robustness             -> v3_roll_robustness.csv
+C4 Chronos on B5-B6            -> v3_chronos_b56.csv
+C5 economic magnitude          -> v3_economic_magnitude.csv, v3_regret_leave_one_block_out.csv
+C7 Christoffersen h = 1        -> v3_christoffersen_h1.csv
 Parts that do not apply to a run (e.g. no Chronos) are skipped and listed in v3_notes.md.
 """
 import shutil

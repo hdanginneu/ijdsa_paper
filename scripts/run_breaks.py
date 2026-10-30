@@ -4,7 +4,7 @@ ADF (constant, and constant + trend; lag by AIC) and KPSS on log price and daily
 PELT (ruptures, 'normal' cost = changes in mean and/or variance) on daily log returns,
 penalty = 3 log(n) (BIC-type, 2 parameters per segment), minimum segment 60 days.
 
-Mean breaks (D-45c): least-squares dynamic programming (Bai & Perron 2003 estimator) with BIC;
+Mean breaks: least-squares dynamic programming (Bai & Perron 2003 estimator) with BIC;
 no sup-F tests. ruptures.Dynp(model="l2", min_size=60, jump=5) on the same sample as PELT;
 k = 0..5 breaks, BIC(k) = n log(RSS_k / n) + (2k + 1) log(n) (k + 1 means, k break dates).
 """

@@ -1,6 +1,6 @@
-"""When to use which model (DECISIONS D-25 .. D-28). Uses saved forecasts only.
+"""When to use which model. Uses saved forecasts only.
 
-All decision rules use the sourced carry cost of D-29 (D-37)."""
+All decision rules use the sourced carry cost."""
 import sys
 from pathlib import Path
 
@@ -54,7 +54,7 @@ def main():
     key = ["block", "origin_date", "h"]
     rw = dec[dec["label"] == "RW"].set_index(key)
 
-    # D-26 Giacomini-White
+    # Giacomini-White
     rows = []
     for h in C.HORIZONS:
         part = []
@@ -78,7 +78,7 @@ def main():
     cell = dec[dec["label"].isin(CANDIDATES)].groupby(["label", "trend_state", "h"], observed=True)["regret"].mean().unstack("label")
     cell.to_csv(OUT / "regret_by_trend_state.csv")
 
-    # D-27 state-switching rule, out of sample
+    # state-switching rule, out of sample
     order = ["B1", "B2", "B3", "B4", "B5", "B6"]
     cand = dec[dec["label"].isin(CANDIDATES)]
     picks, chosen_rows = [], []
@@ -105,7 +105,7 @@ def main():
                 for lab in ["RW", "RF"]}
         s = sw[sw["h"] == h].set_index(key)
         for name, ref in base.items():
-            idx = s.index.intersection(ref.index).sort_values()     # D-58: time order (block, origin, h fixed)
+            idx = s.index.intersection(ref.index).sort_values()     # time order (block, origin, h fixed)
             md, stt, p = dm_test(s.loc[idx, "regret"], ref.loc[idx, "regret"], h)
             res.append({"h": h, "compare": f"switch vs always-{name}", "n": len(idx),
                         "regret_switch": s.loc[idx, "regret"].mean(), "regret_ref": ref.loc[idx, "regret"].mean(),
@@ -113,7 +113,7 @@ def main():
                         "diff": md, "stat": stt, "p": p})
     pd.DataFrame(res).to_csv(OUT / "switch_rule.csv", index=False)
 
-    # D-28 risk-averse probability rule, threshold from the sourced cost of each origin (D-37)
+    # risk-averse probability rule, threshold from the sourced cost of each origin
     sig = ewma_sigma()
     e2 = K.add_cost(ens.dropna(subset=["target_date"]), 1.0).join(sig, on="origin_date")
     rows = []

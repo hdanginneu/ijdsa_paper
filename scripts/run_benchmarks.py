@@ -33,7 +33,7 @@ def main(variant="full", macro_lag=None):
     for b in blocks:
         for split, train_start, train_end, origins in [("test", b.fit[0], b.fit[-1] + C.GAP, b.origins),
                                                        ("cal", b.pretrain[0], b.pretrain[-1] + C.GAP, b.val)]:
-            # expanding window: train_start = FIRST_USABLE (same as before); rolling window: later start (D-31)
+            # expanding window: train_start = FIRST_USABLE (same as before); rolling window: later start
             train_start = 0 if C.TRAIN_WINDOW is None else train_start
             # train_end = last row whose value is known at the first origin of the segment
             out["RW"].append(records(table, R, origins, M.random_walk(len(origins)), "RW", variant, 0, b.name, split))

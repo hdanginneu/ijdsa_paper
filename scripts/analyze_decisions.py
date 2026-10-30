@@ -1,8 +1,8 @@
-"""RQ1-RQ4 tables (DECISIONS D-20 .. D-24). Run after analyze.py inputs exist.
+"""RQ1-RQ4 tables. Run after analyze.py inputs exist.
 
 RQ1  decision fidelity of every point forecaster; MAE-vs-regret rank agreement
 RQ2  decision-aware XGB/GRU vs their MSE versions (seller, sourced cost)
-All rules use the sourced carry cost of D-29 (D-37); the kappa grid is a sensitivity in RQ1 only.
+All rules use the sourced carry cost; the kappa grid is a sensitivity in RQ1 only.
 RQ3  payoff of each rule minus the always-act-now rule, HAC test + Holm
 RQ4  uncertainty-triggered routing RW -> expensive model at query budgets 10/25/50/100%
 """
@@ -84,7 +84,7 @@ def rq2(test, da):
         for h in C.HORIZONS:
             ia = idx[idx.get_level_values("h") == h].sort_values()          # time order for the HAC variance
             md, st, p = dm_test(a.loc[ia, "regret"], b.loc[ia, "regret"], h)
-            # D-52: DA payoff vs selling now (payoff of acting now = 0), as in RQ3
+            # DA payoff vs selling now (payoff of acting now = 0), as in RQ3
             pm, pst, pp = dm_test(-a.loc[ia, "payoff"].to_numpy(), np.zeros(len(ia)), h)
             part.append({"algo": algo, "h": h, "mean_regret_DA_minus_MSE": md, "stat": st, "p_raw": p,
                          "acc_DA": a.loc[ia, "correct"].mean(), "acc_MSE": b.loc[ia, "correct"].mean(),
@@ -94,7 +94,7 @@ def rq2(test, da):
         rows += part
     out = pd.DataFrame(rows)
     if len(out):
-        out["p_holm"] = holm(out["p_raw"].to_numpy())                          # D-52: Holm over all 14 tests
+        out["p_holm"] = holm(out["p_raw"].to_numpy())                          # Holm over all 14 tests
     return da_tab, out
 
 
@@ -122,7 +122,7 @@ def rq3(test, da):
 
 
 def rq4(ens, expensive_labels):
-    """Uncertainty-triggered routing RW -> expensive model (D-24), sourced cost (D-37), DM vs always-RW (D-39).
+    """Uncertainty-triggered routing RW -> expensive model, sourced cost, DM vs always-RW.
 
     Returns (route_table, route_dm)."""
     sigma = ewma_sigma()
@@ -162,7 +162,7 @@ def rq4(ens, expensive_labels):
     out = pd.concat([out, pooled], ignore_index=True)
     out["chronos_sec_per_origin"] = sec_per_origin
 
-    # D-39: each routed rule vs always-RW on pooled test origins; Holm across budgets
+    # each routed rule vs always-RW on pooled test origins; Holm across budgets
     allr = pd.concat(routed_all, ignore_index=True)
     rw_rule = K.evaluate_rule(ens[(ens["label"] == "RW") & (ens["split"] == "test")].dropna(subset=["r_true"]), "seller")
     rw_rule["ae"] = (rw_rule["price_true"] - rw_rule["price_pred"]).abs()
@@ -198,7 +198,7 @@ def main():
     rq3(test, da).to_csv(OUT / "rq3_payoff.csv", index=False)
     cal = ens[ens["split"] == "cal"].dropna(subset=["r_true"])
     cal_mae = cal.assign(ae=(cal["price_true"] - cal["price_pred"]).abs()).groupby("label")["ae"].mean()
-    # D-46: COMB and SHRINK-* are excluded (their validation MAE is not a fair out-of-sample choice)
+    # COMB and SHRINK-* are excluded (their validation MAE is not a fair out-of-sample choice)
     learned = [l for l in cal_mae.index if l not in ("RW", "Drift", "ARIMA", "Chronos", "COMB")
                and not l.startswith("SHRINK-")]
     exps = (["Chronos"] if "Chronos" in cal_mae.index else []) + ([cal_mae.loc[learned].idxmin()] if learned else [])

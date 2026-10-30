@@ -9,7 +9,7 @@ Code, data and results for: *Forecast Accuracy, Uncertainty and Decision Value i
 - `data/raw/`: ICE London Robusta and ICE US Coffee "C" daily series from Investing.com (to 30 Sep 2026) and the FRED series DTWEXBGS, EFFR and DCOILWTICO (retrieved 16 Oct 2026). See the README in each sub-folder.
 - `results/`: results reported in the paper: `tables/`, `paper/` (Tables 1-6 and Figures 1-4 as CSV/PNG), `figures/`, `forecasts/` (every forecast, one row per origin and horizon), `tuning/` (selected hyperparameters), `decision_aware/`, `blocks.csv`, `arima_orders.csv`.
 
-Comments in the code that refer to identifiers such as "D-17" point to the authors' internal design log, which is not part of this repository. The design is described in Section 3 of the paper.
+
 
 ## Evaluation design (short)
 Six rolling-origin blocks (about 1,470 origins), horizons h = 1-7, direct forecasts of the cumulative log return. Models: random walk, drift, ARIMA, SVR, random forest, XGBoost, DNN, LSTM, GRU, zero-shot Chronos-Bolt (small), combination and shrinkage forecasts. Hyperparameters (Optuna, 20 trials) are tuned once on the first block; stochastic models use seeds 0, 7, 21, 42, 99.

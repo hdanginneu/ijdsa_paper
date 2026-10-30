@@ -97,7 +97,7 @@ def build_table(coffee_path=None, macro_lag=None):
     d_usd = np.log(macro["DTWEXBGS"]).diff()
     d_effr = macro["EFFR"].diff()
     d_oil = macro["DCOILWTICO"].diff()
-    t["d_usd"] = d_usd.shift(C.USD_LAG if C.USD_LAG is not None else macro_lag)    # D-56
+    t["d_usd"] = d_usd.shift(C.USD_LAG if C.USD_LAG is not None else macro_lag)
     t["d_effr"] = d_effr.shift(macro_lag)
     t["d_oil"] = d_oil.shift(macro_lag)
 

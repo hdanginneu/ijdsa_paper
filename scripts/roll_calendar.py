@@ -1,8 +1,8 @@
-"""Suspected contract-roll days in the Investing.com continuous series (DECISIONS D-49).
+"""Suspected contract-roll days in the Investing.com continuous series.
 
 For each delivery month and year: window = ±10 trading days around the anchor; inside the window the day
 with the largest overnight gap |log open_t - log close_{t-1}| is flagged if the gap exceeds 3 x the
-full-sample median gap. Anchors (ROLL_NOTES.md): First Notice Day (primary, D-49) and Last Trading Day
+full-sample median gap. Anchors (ROLL_NOTES.md): First Notice Day (primary) and Last Trading Day
 (supplementary). Business days are approximated by the trading days in the file.
 Output: <main results>/tables/roll_calendar_{robusta|arabica}.csv and *_summary.csv
 """

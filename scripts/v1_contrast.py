@@ -1,4 +1,4 @@
-"""Claims of the submitted manuscript (v1) vs the new evidence (DECISIONS D-45d). Main run only.
+"""Claims of the submitted manuscript (v1) vs the new evidence. Main run only.
 
 Writes results/tables/v1_contrast.md. Numbers only; the verdict follows the rules written next to
 each claim below, and is 'needs author review' when a rule cannot decide.
@@ -90,7 +90,7 @@ def claim_recurrence():
         b = g[g["label"] == "GRU"].set_index(["block", "origin_date"])
         if a.empty or b.empty:
             return "n/a", "needs author review"
-        idx = a.index.intersection(b.index).sort_values()          # D-58 addendum: time order
+        idx = a.index.intersection(b.index).sort_values()          # time order
         md, st, pv = dm_test((a.loc[idx, "price_true"] - a.loc[idx, "price_pred"]) ** 2,
                              (b.loc[idx, "price_true"] - b.loc[idx, "price_pred"]) ** 2, h)
         sig += int(pv < 0.05 and md > 0)

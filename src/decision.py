@@ -1,4 +1,4 @@
-"""Stylised sell-now-or-wait decision (DECISIONS D-20 .. D-23).
+"""Stylised sell-now-or-wait decision.
 
 Seller holding physical Robusta at origin t:
     sell now        -> receives P_t

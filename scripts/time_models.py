@@ -1,4 +1,4 @@
-"""Compute cost re-measured (DECISIONS D-54). Main run only; runs after the main estimation, alone.
+"""Compute cost re-measured. Main run only; runs after the main estimation, alone.
 
 Block B5, seed 0, frozen hyperparameters. For each model: (a) fit time on B5's fit set (DL: the fixed
 refit epochs of seed 0 / B5; RW and Chronos have no fit), (b) prediction time for B5's origins.

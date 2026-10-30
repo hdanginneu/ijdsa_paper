@@ -5,8 +5,8 @@
     python run_all.py --fresh    # move existing results aside and recompute everything
     python run_all.py --jobs 4   # parallel estimation jobs (each uses 2 threads)
 
-Stages: main estimation (incl. COMB/SHRINK) -> timing (D-54) -> main analysis (incl. roll calendar,
-analyze_v3) -> robustness runs (D-35, D-55, D-56)
+Stages: main estimation (incl. COMB/SHRINK) -> timing -> main analysis (incl. roll calendar,
+analyze_v3) -> robustness runs
 -> robustness summary -> v1 contrast -> report. Results for the paper always come from --fresh.
 Every job writes a log to <results>/logs/; progress is printed and kept in <results>/RUN_STATUS.md.
 """
@@ -33,8 +33,8 @@ ROBUST = {
     "arabica": ({"IJDSA_COFFEE_FILE": str(ARABICA), "IJDSA_PRICE_UNIT": "cents_lb"}, ["rf", "xgb", "gru", "chronos"]),
     "arabica_noflat": ({"IJDSA_COFFEE_FILE": str(ARABICA), "IJDSA_PRICE_UNIT": "cents_lb",
                         "IJDSA_DROP_FLAT": "1", "IJDSA_DROP_FLAT_FROM": "2008-01-01"},
-                       ["rf", "xgb", "gru", "chronos"]),                                   # D-55
-    "usdlag7": ({"IJDSA_USD_LAG": "7"}, ["xgb", "gru"]),                                 # D-56
+                       ["rf", "xgb", "gru", "chronos"]),
+    "usdlag7": ({"IJDSA_USD_LAG": "7"}, ["xgb", "gru"]),
 }
 
 
@@ -104,7 +104,7 @@ class Runner:
         self.parallel(tasks)
         if not tag or "chronos" in (models or []):
             self.run(p + "chronos", ["scripts/run_chronos.py"], extra)
-        # D-42/D-43: combination and shrinkage, after every learned job and Chronos
+        # combination and shrinkage, after every learned job and Chronos
         self.run(p + "combos", ["scripts/run_combos.py"], extra)
 
     def analysis(self, tag="", extra=None):
@@ -114,10 +114,10 @@ class Runner:
             self.run("analyze_decisions", ["scripts/analyze_decisions.py"], extra)
             self.run("analyze_states", ["scripts/analyze_states.py"], extra)
         self.run(p + "analyze_v2", ["scripts/analyze_v2.py"], extra)
-        if not tag:                                                  # D-49: once, for Robusta and Arabica
+        if not tag:                                                  # once, for Robusta and Arabica
             self.run("roll_calendar", ["scripts/roll_calendar.py"], extra)
         self.run(p + "analyze_v3", ["scripts/analyze_v3.py"], extra)
-        self.run(p + "analyze_v4", ["scripts/analyze_v4.py"], extra)             # D-59 .. D-62
+        self.run(p + "analyze_v4", ["scripts/analyze_v4.py"], extra)
         self.run(p + "figures", ["scripts/make_figures.py"], extra)
 
 
@@ -129,9 +129,8 @@ def export(res, dest_root, R):
         for f in ["RESULTS.md", "RUN_STATUS.md", "blocks.csv"]:
             if (res / f).exists():
                 shutil.copy2(res / f, dest / f)
-        shutil.copy2(ROOT / "DECISIONS.md", dest / "DECISIONS.md")
         for doc in [ROOT / "CHRONOS_CORPUS.md", ROOT / "data/raw/update_2026-09/ROLL_NOTES.md",
-                    ROOT / "data/raw/fred_2026-10-16/RELEASE_CALENDAR.md"]:          # D-44, D-49, D-50
+                    ROOT / "data/raw/fred_2026-10-16/RELEASE_CALENDAR.md"]:
             if doc.exists():
                 shutil.copy2(doc, dest / doc.name)
         for sub in ["tables", "figures", "logs", "paper"]:
@@ -168,11 +167,11 @@ def main():
         if not R.run("test_leakage", ["tests/test_leakage.py"]):
             R.note("leakage test failed: stopping")
             sys.exit(1)
-        if not R.run("test_variance_ratio", ["tests/test_variance_ratio.py"]):     # D-64
+        if not R.run("test_variance_ratio", ["tests/test_variance_ratio.py"]):
             R.note("variance ratio test failed: stopping")
             sys.exit(1)
         R.estimation()
-        # D-54: timing right after the main estimation, alone (stages run one after another)
+        # timing right after the main estimation, alone (stages run one after another)
         R.run("time_models", ["scripts/time_models.py"])
         R.analysis()
     if a.only in (None, "robust"):
@@ -185,8 +184,8 @@ def main():
             R.analysis(tag, {"IJDSA_TAG": tag, **extra})
     if a.only in (None, "report"):
         R.run("robustness_summary", ["scripts/robustness_summary.py"])
-        R.run("v1_contrast", ["scripts/v1_contrast.py"])          # main run only (D-45d)
-        R.run("paper_tables", ["scripts/paper_tables.py"])        # main run only (D-63)
+        R.run("v1_contrast", ["scripts/v1_contrast.py"])          # main run only
+        R.run("paper_tables", ["scripts/paper_tables.py"])        # main run only
         R.run("report", ["scripts/make_report.py"])
     if a.export:
         export(res, Path(a.export).expanduser(), R)

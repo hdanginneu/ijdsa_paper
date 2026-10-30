@@ -1,10 +1,10 @@
-"""Round-4 analysis-only additions (DECISIONS D-59 .. D-62). Saved forecasts only; tables in <results>/tables/v4_*.csv.
+"""Round-4 analysis-only additions. Saved forecasts only; tables in <results>/tables/v4_*.csv.
 
-E1 inventory risk limit from the 90% interval (D-59)  -> v4_risk_limit*.csv          (RQ2)
-E2 oracle value and break-even accuracy (D-60)        -> v4_oracle_value.csv, v4_value_share.csv  (RQ3)
-E3 reliability of model selection (D-61)              -> v4_selection_*.csv, v4_shrink_vs_endpoints.csv (RQ4)
-E4 variance-ratio tests (D-62), main and Arabica only -> v4_variance_ratio.csv       (RQ1 mechanism)
-Decision configuration: seller, storage x1, basis noise 0, sourced cost (D-29). Every HAC test uses series
+E1 inventory risk limit from the 90% interval  -> v4_risk_limit*.csv          (RQ2)
+E2 oracle value and break-even accuracy        -> v4_oracle_value.csv, v4_value_share.csv  (RQ3)
+E3 reliability of model selection              -> v4_selection_*.csv, v4_shrink_vs_endpoints.csv (RQ4)
+E4 variance-ratio tests, main and Arabica only -> v4_variance_ratio.csv       (RQ1 mechanism)
+Decision configuration: seller, storage x1, basis noise 0, sourced cost. Every HAC test uses series
 in (block, origin_date) order via analyze_v3.ordered / paired.
 """
 import sys
@@ -31,7 +31,7 @@ SHRINK_BASES = ["RF", "XGB", "GRU", "Chronos", "COMB"]
 VR_Q = [2, 5, 10]
 
 
-# ------------------------------------------------------------------ E1 (D-59)
+# ------------------------------------------------------------------ E1
 def zone(x, n):
     f = stats.binom.cdf(x, n, TAU)
     return ("green" if f < 0.95 else "yellow" if f < 0.9999 else "red"), f
@@ -88,7 +88,7 @@ def e1_risk_limit():
     pd.DataFrame(chs).to_csv(OUT / "v4_risk_limit_christoffersen_h1.csv", index=False)
 
 
-# ------------------------------------------------------------------ E2 (D-60)
+# ------------------------------------------------------------------ E2
 def thresholds(pw):
     """VPI, break-even q* and the q needed for 10% / 25% of VPI (closed form, TPR = TNR = q)."""
     A, Bn = np.maximum(pw, 0).mean(), np.minimum(pw, 0).mean()
@@ -129,7 +129,7 @@ def e2_oracle(dec, labels):
     pd.DataFrame(share).to_csv(OUT / "v4_value_share.csv", index=False)
 
 
-# ------------------------------------------------------------------ E3 (D-61)
+# ------------------------------------------------------------------ E3
 def cell_stats(frame, labels):
     """MAE and mean regret per label in one block x h cell (frame already evaluated with K.evaluate_rule)."""
     e = (frame["price_true"] - frame["price_pred"]).abs()
@@ -225,10 +225,10 @@ def e3_shrink(ens, labels):
     return out
 
 
-# ------------------------------------------------------------------ E4 (D-62)
+# ------------------------------------------------------------------ E4
 def variance_ratio(r, q):
     """Lo & MacKinlay (1988): overlapping q-period variance ratio with the small-sample bias corrections and the
-    heteroskedasticity-robust z* = sqrt(n) (VR - 1) / sqrt(theta), n = number of daily returns (D-64).
+    heteroskedasticity-robust z* = sqrt(n) (VR - 1) / sqrt(theta), n = number of daily returns.
     Returns (VR, z*, two-sided p)."""
     r = np.asarray(r, float)
     n = len(r)
@@ -244,7 +244,7 @@ def variance_ratio(r, q):
     for j in range(1, q):
         delta = n * (d2[j:] @ d2[:-j]) / (d2.sum() ** 2)
         theta += (2 * (q - j) / q) ** 2 * delta
-    z = np.sqrt(n) * (vr - 1) / np.sqrt(theta)                        # D-64: sqrt(n) was missing
+    z = np.sqrt(n) * (vr - 1) / np.sqrt(theta)                        # sqrt(n) was missing
     return vr, z, 2 * stats.norm.sf(abs(z))
 
 
@@ -260,7 +260,7 @@ def coffee_returns():
 
 
 def e4_variance_ratio(ens):
-    """Periods (D-64). Block b covers the returns in (first origin of b, last origin of b]. 'pre-B1' covers every
+    """Periods. Block b covers the returns in (first origin of b, last origin of b]. 'pre-B1' covers every
     return from the first one after START_DATE up to and including the first B1 origin (2020-12-01 in the main
     run: N = 3,302), so pre-B1, B1, ..., B6 are contiguous and no return falls between them. The return dated
     at the first B1 origin is known at that origin, so it is pre-test information. (The 24/10 run used

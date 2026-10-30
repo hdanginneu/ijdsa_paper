@@ -24,7 +24,7 @@ Notes
 - WTI is also a market price observable the same day by traders; the official-release timing above is the
   conservative standard.
 
-## Conclusion (for D-44)
+## Conclusion 
 - **EFFR**: lag 6 is far more than needed (1 business day suffices).
 - **WTI (DCOILWTICO)**: lag 6 is sufficient with respect to the official EIA release (one day of slack in normal
   weeks, none in holiday weeks). If the FRED posting time is taken as the publication time instead, a value can
@@ -34,4 +34,4 @@ Notes
   Columbus Day and Monday-observed holidays; roughly 5–8 values per year). A UK bank holiday in between adds a
   day of slack, because the lag is counted in London trading days.
 - The configuration was **not changed** (handoff rule). The exposure is limited to a handful of DTWEXBGS values
-  per year; the lag-1 robustness run (D-35) already shows how results move when macro values are far more recent.
+  per year; the lag-1 robustness run already shows how results move when macro values are far more recent.

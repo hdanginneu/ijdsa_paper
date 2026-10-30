@@ -1,7 +1,7 @@
-"""RQ2: decision-aware (cost-sensitive classification) versions of XGB and GRU (D-22).
+"""RQ2: decision-aware (cost-sensitive classification) versions of XGB and GRU.
 
 Same frozen hyperparameters, blocks, seeds and inputs as the MSE versions; only the loss changes.
-Labels use the sourced carry cost (D-38):
+Labels use the sourced carry cost:
     gain(t,h) = P_t (exp(r) - 1) - cost(t,h)     (USD/t, payoff of waiting for a seller)
     label = 1[gain > 0], weight = |gain| / P_t
 cost(t,h) uses only information at origin t; labels use realised targets of fit-set origins only.
