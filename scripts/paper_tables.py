@@ -9,7 +9,8 @@ from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt                                   # noqa: E402
+import matplotlib.pyplot as plt
+plt.rcParams["pdf.fonttype"] = 42                                   # noqa: E402
 import numpy as np                                                # noqa: E402
 import pandas as pd                                               # noqa: E402
 
@@ -174,7 +175,8 @@ def t6():
 
 def figures():
     F = C.MAIN_RESULTS / "figures"
-    for src, dst in [("fig1_price_blocks.png", "F1_price_blocks.png"), ("fig5_coverage_block_h.png", "F3_coverage_block_h.png")]:
+    for src, dst in [("fig1_price_blocks.png", "F1_price_blocks.png"), ("fig5_coverage_block_h.png", "F3_coverage_block_h.png"),
+                     ("fig1_price_blocks.pdf", "F1_price_blocks.pdf"), ("fig5_coverage_block_h.pdf", "F3_coverage_block_h.pdf")]:
         if (F / src).exists():
             shutil.copy2(F / src, P / dst)
     ci = rd(T / "v3_mae_ratio_ci.csv")
@@ -195,6 +197,7 @@ def figures():
         ax.legend(fontsize=6, ncol=4)
         fig.tight_layout()
         fig.savefig(P / "F2_rmae_ci.png", dpi=300)
+        fig.savefig(P / "F2_rmae_ci.pdf")
         plt.close(fig)
     dec = rd(T / "v2_decisions.csv")
     if dec is not None:
@@ -215,6 +218,7 @@ def figures():
         axes[0].legend(fontsize=7)
         fig.tight_layout()
         fig.savefig(P / "F4_regret_by_block.png", dpi=300)
+        fig.savefig(P / "F4_regret_by_block.pdf")
         plt.close(fig)
 
 

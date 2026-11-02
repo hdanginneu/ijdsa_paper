@@ -5,6 +5,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                   # noqa: E402
+plt.rcParams["pdf.fonttype"] = 42                                 # embed TrueType fonts in the vector (PDF) copies
 import numpy as np                                                # noqa: E402
 import pandas as pd                                               # noqa: E402
 
@@ -20,6 +21,7 @@ MAIN = ["RW", "ARIMA", "RF", "XGB", "GRU", "Chronos"]
 def save(fig, name):
     fig.tight_layout()
     fig.savefig(F / name, dpi=300)
+    fig.savefig(F / name.replace(".png", ".pdf"))                 # vector copy for the journal
     plt.close(fig)
     print("figure", name, flush=True)
 
@@ -96,6 +98,7 @@ def fig_coverage_block_h():
     fig.colorbar(im, ax=axes, fraction=0.02, label="coverage (target 0.90)")
     fig.suptitle("RW, 90% prediction interval: coverage by block and horizon", fontsize=9)
     fig.savefig(F / "fig5_coverage_block_h.png", dpi=300, bbox_inches="tight")
+    fig.savefig(F / "fig5_coverage_block_h.pdf", bbox_inches="tight")
     plt.close(fig)
     print("figure fig5_coverage_block_h.png", flush=True)
 
