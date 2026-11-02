@@ -1,6 +1,6 @@
 # Contract roll notes
 
-Checked 22/10/2026. Only what the cited pages state is reported as fact.
+Checked 22/10/2026 (Investing.com support page re-checked 26/10/2026). Only what the cited pages state is reported as fact.
 
 ## ICE Robusta Coffee Futures (ICE Futures Europe) — https://www.ice.com/products/37089079/Robusta-Coffee-Futures/specs
 - Delivery months: "January, March, May, July, September, November, such that ten delivery months are available for trading".
