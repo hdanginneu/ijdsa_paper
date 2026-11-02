@@ -1,0 +1,5 @@
+procedure,n_cells,n_worse_than_RW,n_better_than_RW,share_worse_than_RW,stat_kind,mean_test_stat,median_test_stat,mean_selection_regret,n_RW_selected,selected_frequency,conclusion_worse_majority
+P1,42,30,12,0.7142857142857143,MAE ratio vs RW,1.00900850026181,1.0023790564084667,1.9223418483454713,0,GRU 17; ARIMA 13; XGB 9; COMB 2; Drift 1,True
+P2,42,25,9,0.5952380952380952,MAE ratio vs RW,1.0088717668214158,1.0009499349633284,1.9410656831294426,8,GRU 16; XGB 9; RW 8; ARIMA 7; COMB 2,True
+P3,42,16,8,0.38095238095238093,regret diff vs RW (USD/t),3.2080623061154774,0.0,7.6189714200742955,0,GRU 14; XGB 12; Drift 8; ARIMA 8,False
+P4,126,53,73,0.42063492063492064,MAE ratio selected w vs w = 0,1.0049926376995966,0.9999999999999987,,56,w = 0 in 56 cells,False

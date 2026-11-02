@@ -7,7 +7,6 @@ __pycache__/
 _tmp_stage/
 results_backup_*/
 results_smoke*/
-results/robust/
 results/epochs/
 *.log
 DECISIONS.md
