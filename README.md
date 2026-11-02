@@ -26,6 +26,7 @@ Stage by stage:
 python tests/test_leakage.py
 python scripts/run_benchmarks.py
 python scripts/run_breaks.py
+python scripts/rollchk.py data/raw/update_2026-09/london_robusta_daily_2008-01-14_2026-09-30.csv   # roll-day check in Sect. 3.1
 python scripts/tune.py <svr|rf|xgb|dnn|lstm|gru> <full|price>
 python scripts/run_learned.py <model> <full|price> [seeds]
 python scripts/run_chronos.py
@@ -36,7 +37,7 @@ python scripts/analyze_states.py
 python scripts/analyze_v2.py
 python scripts/make_figures.py
 ```
-Tables can be rebuilt from the saved forecasts in `results/forecasts/` without retraining. A full run was done on one macOS machine; results can differ slightly across machines and library versions for the neural models. The robustness runs listed in `run_all.py` write to `results/robust/`, which is not included because of its size.
+Tables can be rebuilt from the saved forecasts in `results/forecasts/` without retraining. A full run was done on one macOS machine; results can differ slightly across machines and library versions for the neural models. The robustness runs listed in `run_all.py` write to `results/robust/`. Only the six tables per run that are needed to rebuild Tables 5-6 are included there (about 3.7 MB); the full output of each run is not included because of its size.
 
 ## Data terms
-Investing.com data are redistributed here for replication; their use remains subject to the provider's terms. FRED series are publicly available from the Federal Reserve Bank of St. Louis.
+Investing.com price and volume data are redistributed here only to allow replication; their use remains subject to the provider's terms, all rights remain with the provider and the exchange, and the files will be removed at the provider's request. SHA-256 checksums of all raw data files are in `CHECKSUMS_SHA256.txt`, so that an independently downloaded copy can be compared (`shasum -a 256 -c CHECKSUMS_SHA256.txt` on macOS, `sha256sum -c CHECKSUMS_SHA256.txt` on Linux). FRED series are publicly available from the Federal Reserve Bank of St. Louis.

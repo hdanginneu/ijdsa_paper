@@ -18,8 +18,10 @@ Checked 22/10/2026. Only what the cited pages state is reported as fact.
 
 ## Investing.com continuous series
 - How Investing.com builds its continuous "London Coffee" / "US Coffee C" history (which contract on which
-  date, and whether prices are back-adjusted) could not be verified: the Investing.com support pages were
-  not reachable from this machine on 22/10/2026 (connection closed). **[unverified]**
+  date, and whether prices are back-adjusted) is not documented. Its support page "When are futures contracts
+  rolled-over on the website?" (accessed 26/10/2026) states that the site switches to the next contract during
+  the weekend before expiry; it does not say which contract is used on which date or whether prices are
+  adjusted. **[unverified]**
 - No adjustment factors or contract identifiers are present in the files.
 
 ## Anchors used by scripts/roll_calendar.py (assumptions, stated explicitly)

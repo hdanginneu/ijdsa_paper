@@ -1,0 +1,6 @@
+f7afa9aa298af0dc5e3df79bdf8f8ff98bbf80a118e99055bd6df25a2faf6d28  data/raw/fred_2026-10-16/DCOILWTICO.csv
+b183bc41d93628fe55616b410a05b362d4a29517478910225268962d25430daf  data/raw/fred_2026-10-16/DTWEXBGS.csv
+0c5faffb6cc62419ccf695fa8f8642f3a291b3d6e115cf79bcf94ccd5bbf25d7  data/raw/fred_2026-10-16/EFFR.csv
+2e8d2232b1a54822ad888f82732ebbea8f580a65fbe709e3891d2c98b5d9915d  data/raw/update_2026-09/london_2026_from_api.csv
+70fb2d0da5af39aaaed8f0755c286f795b9272e3b44956f50fd64f2759c2ca78  data/raw/update_2026-09/london_robusta_daily_2008-01-14_2026-09-30.csv
+6f1faab750f2ef2181af01e16c3f8e484b76c7b359ef680f4d8532ff0fb2b47e  data/raw/update_2026-09/us_coffee_c_daily_2008-01-14_2026-09-30.csv
